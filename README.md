@@ -41,6 +41,8 @@ POST /api/users/login
 POST /api/users/getIdByEmail"
 
 # Private routes
+# Using header Authorization: <token>
+
 POST /api/messages
 PUT /api/messages/:id
 DELETE /api/messages/:id

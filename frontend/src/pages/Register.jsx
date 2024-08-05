@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import { useSnackbar } from "notistack";
 import api from "../api/api";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -8,6 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +21,10 @@ const Register = () => {
       });
       navigate("/login");
     } catch (error) {
-      console.error("Failed to register", error);
+      enqueueSnackbar("Failed to register", { variant: "error" });
+      enqueueSnackbar(error.response.data.error, {
+        variant: "error",
+      });
     }
   };
 

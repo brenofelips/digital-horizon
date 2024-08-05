@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
 import { useAuth } from "../AuthContext";
 import api from "../api/api";
 
@@ -9,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const { handleUserData } = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +24,10 @@ const Login = () => {
       localStorage.setItem("TOKEN", response.data.token);
       navigate("/");
     } catch (error) {
-      console.error("Failed to login", error);
+      enqueueSnackbar("Failed to login", { variant: "error" });
+      enqueueSnackbar(error.response.data.error, {
+        variant: "error",
+      });
     }
   };
 

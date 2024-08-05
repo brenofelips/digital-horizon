@@ -1,4 +1,4 @@
-# Desafio Técniao Digital Horizon
+# Desafio Técnico Digital Horizon
 
 ## Objetivo
 

@@ -36,12 +36,12 @@ yarn test
 
 ```bash
 # Public routes
-POST /api/users/register"
+POST /api/users/register
 POST /api/users/login
-POST /api/users/getIdByEmail"
+POST /api/users/getIdByEmail
 
 # Private routes
-# Using header Authorization: <token>
+# Usar o header Authorization: <token>
 
 POST /api/messages
 PUT /api/messages/:id

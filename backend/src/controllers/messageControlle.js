@@ -69,7 +69,7 @@ export const getAllMessages = async (req, res) => {
 export const getMessageById = async (req, res) => {
   const { id } = req.params;
   try {
-    const message = await Message.findById(id).populate('user', '_id, username email');
+    const message = await Message.findById(id).populate('userId', '_id, username email');
     if (!message) {
       return res.status(404).json({ error: "Message not found" });
     }

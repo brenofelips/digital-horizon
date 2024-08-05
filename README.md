@@ -33,3 +33,17 @@ yarn dev
 # Para rodar os testes
 yarn test
 ```
+
+```bash
+# Public routes
+POST /api/users/register"
+POST /api/users/login
+POST /api/users/getIdByEmail"
+
+# Private routes
+POST /api/messages
+PUT /api/messages/:id
+DELETE /api/messages/:id
+GET /api/messages
+GET /api/messages/:id
+```
